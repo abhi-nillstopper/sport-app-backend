@@ -9,6 +9,8 @@
     "lint": "eslint ./src --fix",
     "nodemon": "nodemon",
     "node-start": "npm run compile-run",
+    "start": "npm run prod-build",
+    "prod-build": "babel src --out-dir .compiled && node ./.compiled/server.js",
     "compile-run": "babel src --out-dir .compiled --source-maps && node ./.compiled/server.js"
   },
   "keywords": [],
