@@ -11,9 +11,13 @@ const httpServer = createServer(app);
 
 const CONNECTED_USERS = {};
 
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
+
 //socket.io Server
 const io = new ioServer(httpServer, {
-  cors: { origin: "http://localhost:5500", methods: ["GET", "POST"] },
+  cors: { origin: process.env.SPORT_FRONTEND_URL, methods: ["GET", "POST"] },
 });
 
 io.on("connection", (socket) => {
@@ -23,9 +27,7 @@ io.on("connection", (socket) => {
   // console.log("user is connected", socket.id);
 });
 
-if (process.env.NODE_ENV !== "production") {
-  require("dotenv").config();
-}
+
 
 try {
   mongoose
@@ -46,7 +48,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(cors({ origin: "http://localhost:5500" }));
+app.use(cors({ origin: process.env.SPORT_FRONTEND_URL }));
 app.use(express.json());
 app.use("/files", express.static(path.resolve(__dirname, "..", "files")));
 app.use(routes);

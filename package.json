@@ -4,48 +4,39 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
-    "start-dev": "nodemon -r esm src/server.js",
+    "clean": "rimraf build && mkdir build",
+    "build": "npm run clean && npm run build-babel",
+    "start": "npm run build",
+    "build-babel": "babel -d ./build ./src -s && node ./build/index.js",
+    "start-dev": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./src --fix",
-    "nodemon": "nodemon",
     "node-start": "npm run compile-run",
-    "start": "npm run prod-build",
-    "prod-build": "babel src --out-dir .compiled && node ./.compiled/server.js",
-    "compile-run": "babel src --out-dir .compiled --source-maps && node ./.compiled/server.js"
+    "compile-run": "babel src --out-dir build --source-maps && node ./build/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/runtime": "^7.14.0",
     "aws-sdk": "^2.906.0",
     "bcrypt": "^5.0.0",
     "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "esm": "^3.2.25",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.14",
     "multer": "^1.4.2",
     "multer-s3": "^2.9.0",
-    "passport-jwt": "^4.0.0",
     "prettier": "^2.2.1",
     "socket.io": "^4.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.10",
-    "babel-cli": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1",
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.14.2",
+    "@babel/plugin-transform-runtime": "^7.14.2",
+    "@babel/preset-env": "^7.14.2",
+    "dotenv": "^8.2.0",
     "eslint": "^7.2.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.21.5",
-    "eslint-plugin-react-hooks": "^1.7.0",
     "nodemon": "^2.0.7"
-  },
-  "babel": {
-    "presets": [
-      "es2015"
-    ]
   }
 }
