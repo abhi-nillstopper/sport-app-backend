@@ -13,7 +13,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./src --fix",
     "node-start": "npm run compile-run",
-    "compile-run": "babel src --out-dir build --source-maps && node ./build/index.js"
+    "compile-run": "babel src --out-dir build --source-maps && node ./build/index.js",
+    "heroku-prebuild": "rm -rf node_modules"
   },
   "keywords": [],
   "author": "",
@@ -29,13 +30,13 @@
     "multer": "^1.4.2",
     "multer-s3": "^2.9.0",
     "prettier": "^2.2.1",
-    "socket.io": "^4.0.1"
-  },
-  "devDependencies": {
+    "socket.io": "^4.0.1",
     "@babel/cli": "^7.13.16",
     "@babel/core": "^7.14.2",
     "@babel/plugin-transform-runtime": "^7.14.2",
-    "@babel/preset-env": "^7.14.2",
+    "@babel/preset-env": "^7.14.2"
+  },
+  "devDependencies": {
     "dotenv": "^8.2.0",
     "eslint": "^7.2.0",
     "nodemon": "^2.0.7"
