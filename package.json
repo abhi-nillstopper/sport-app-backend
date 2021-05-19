@@ -17,7 +17,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./src --fix",
     "node-start": "npm run compile-run",
-    "compile-run": "babel src --out-dir build --source-maps && node ./build/index.js",
+    "compile-run": "babel src --out-dir build --source-maps && node ./build/index.js"
   },
   "keywords": [],
   "author": "",
