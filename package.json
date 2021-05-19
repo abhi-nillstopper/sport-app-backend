@@ -17,7 +17,9 @@
     "lint": "eslint ./src --fix",
     "node-start": "npm run compile-run",
     "compile-run": "babel src --out-dir build --source-maps && node ./build/index.js",
-    "heroku-prebuild": "rm -rf node_modules"
+    "heroku-prebuild": "rm -rf node_modules",
+    "heroku-postbuild": "npm install && node ./build/index.js"
+
   },
   "keywords": [],
   "author": "",
