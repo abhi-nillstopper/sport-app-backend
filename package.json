@@ -8,7 +8,8 @@
   },
   "main": "src/server.js",
   "scripts": {
-    "start": "babel-node ./build/index.js",
+    "heroku-postbuild": "npm install",
+		"start": "babel-node src/index.js",
     "build": "babel-node ./src/index.js",
     "babel-build": "babel -d ./build ./src -s",
     "clean": "rimraf ./build && mkdir build",
