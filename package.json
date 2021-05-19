@@ -8,7 +8,7 @@
   },
   "main": "src/server.js",
   "scripts": {
-    "heroku-postbuild": "npm install",
+    "heroku-postbuild": "rimraf node_modules && npm install",
 		"start": "babel-node src/index.js",
     "build": "babel-node ./src/index.js",
     "babel-build": "babel -d ./build ./src -s",
@@ -18,7 +18,6 @@
     "lint": "eslint ./src --fix",
     "node-start": "npm run compile-run",
     "compile-run": "babel src --out-dir build --source-maps && node ./build/index.js",
-    "heroku-prebuild": "rimraf node_modules"
   },
   "keywords": [],
   "author": "",
