@@ -18,7 +18,7 @@
     "node-start": "npm run compile-run",
     "compile-run": "babel src --out-dir build --source-maps && node ./build/index.js",
     "heroku-prebuild": "rimraf node_modules",
-    "heroku-postbuild": "npm install"
+    "heroku-postbuild": "npm install && npm run build"
   },
   "keywords": [],
   "author": "",
