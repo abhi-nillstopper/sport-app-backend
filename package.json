@@ -9,7 +9,6 @@
   "main": "src/server.js",
   "scripts": {
     "start": "babel-node ./build/index.js",
-    "build": "npm run clean && npm run babel-build",
     "babel-build": "babel -d ./build ./src -s",
     "clean": "rimraf ./build && mkdir build",
     "start-dev": "nodemon",
