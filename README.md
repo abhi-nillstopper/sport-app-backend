@@ -1,9 +1,9 @@
 # Sport App APIs
 ## _This project is built using_
 
->Node.js, Express.js, MongoDB
->AWS s3 bucket, Socket.io, JWT authentication.
->ECMAScript-ES6, Babel transpiler,
+>Node.js, Express.js, MongoDB,
+>AWS s3 bucket, Socket.io, JWT authentication,
+>ECMAScript-ES6, Babel transpiler
 
 ## Features
 
